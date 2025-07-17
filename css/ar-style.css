@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap");
+body {
+    font-family: "Tajawal", sans-serif;
+}
+.section-title h3 {
+    padding-right: 20px;
+    padding-left: 0;
+}
+.section-title h3::before {
+    left: initial;
+    right: 0;
+}
+.hero-content-list ul li {
+    padding-right: 30px;
+    padding-left: 0;
+}
+.hero-content-list ul li:before {
+    left: initial;
+    right: 0;
+}
+.about-experience-box {
+    left: initial;
+    right: 0;
+}
+
+@keyframes experiencemoveobject {
+    50% {
+        right: 30px;
+    }
+}
+.about-list ul li {
+    padding-left: 0;
+    padding-right: 30px;
+}
+.about-list ul li:before {
+    left: initial;
+    right: 0;
+}
+.work-step-nav ul li .nav-link img {
+    margin-right: 0;
+    margin-left: 15px;
+}
+.work-step-content {
+    padding-left: 0;
+    padding-right: 50px;
+}
+.work-step-item::before {
+    right: -33px;
+}
+.work-step-item::after {
+    content: "";
+    display: block;
+    position: absolute;
+    right: -50px;
+    bottom: 15px;
+    transform: translate(-25px, 55px);
+    border-left: 1px solid var(--accent-color);
+    width: 1px;
+    height: calc(100% - 5px);
+    -webkit-transform: translate(-25px, 55px);
+    -moz-transform: translate(-25px, 55px);
+    -ms-transform: translate(-25px, 55px);
+    -o-transform: translate(-25px, 55px);
+}
+.section-btn {
+    text-align: left;
+}
+.cta-contact-item {
+    border-left: 1px solid var(--dark-divider-color);
+    margin-left: 20px;
+    padding-left: 5px;
+    border-right: 0;
+    margin-right: 0;
+    padding-right: 0;
+}
+.cta-contact-header img {
+    max-width: 20px;
+    margin-right: 0;
+    margin-left: 10px;
+}
+.video-gallery-image a::after {
+    right: 50%;
+    transform: translate(50%, -50%);
+}
+@media only screen and (max-width: 991px) {
+    .hero-content-list ul li {
+        padding-right: 25px;
+    }
+    .about-list ul li {
+        padding-left: 0;
+        padding-right: 25px;
+    }
+}
+@media only screen and (max-width: 767px) {
+    .about-us-images {
+        max-width: 100%;
+        padding: 0 0px 20px 0px;
+    }
+    .about-experience-box {
+        top: initial;
+        bottom: 100px;
+        right: initial;
+        left: 0;
+    }
+    @keyframes experiencemoveobject {
+        50% {
+            left: 30px;
+        }
+    }
+    .work-step-nav ul li .nav-link img {
+        margin: 0 0 5px 0;
+    }
+    .work-step-content {
+        padding-right: 40px;
+    }
+    .cta-contact-item {
+        border-left: 1px solid var(--dark-divider-color);
+        margin-left: 10px;
+        padding-left: 10px;
+        border-right: 0;
+        margin-right: 0;
+        padding-right: 0;
+    }
+}
