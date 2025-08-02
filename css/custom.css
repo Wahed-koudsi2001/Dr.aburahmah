@@ -325,7 +325,6 @@ body {
 
 .bg-section {
 	width: 100%;
-	max-width: 1720px;
 	margin: 0 auto;
 	border-radius: 40px;
 }
@@ -2603,6 +2602,8 @@ header.main-header .header-sticky.active {
 
 .testimonial-slider .swiper-wrapper {
 	cursor: none;
+	display: flex;
+	align-items: stretch;
 }
 
 .testimonial-item {
@@ -2612,6 +2613,7 @@ header.main-header .header-sticky.active {
 	-webkit-backdrop-filter: blur(50px);
 	border-radius: 20px;
 	padding: 40px 35px;
+	height: 100%;
 	overflow: hidden;
 }
 
