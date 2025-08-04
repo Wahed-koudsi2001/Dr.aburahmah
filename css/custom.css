@@ -1443,10 +1443,6 @@ header.main-header .header-sticky.active {
 	gap: 30px;
 }
 
-.about-list-btn {
-	width: calc(100% - 220px);
-}
-
 .about-list ul {
 	margin: 0;
 	padding: 0;
@@ -5501,10 +5497,6 @@ header.main-header .header-sticky.active {
 
 	.about-us-img-2 {
 		right: 20px;
-	}
-
-	.about-list-btn {
-		width: calc(100% - 170px);
 	}
 
 	.about-list ul li {
