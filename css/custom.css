@@ -2758,7 +2758,6 @@ header.main-header .header-sticky.active {
 
 .faqs-contact-box {
 	width: 100%;
-	max-width: 480px;
 	border-radius: 20px;
 	overflow: hidden;
 }
@@ -2991,7 +2990,6 @@ header.main-header .header-sticky.active {
 
 .post-featured-image img {
 	width: 100%;
-	aspect-ratio: 1 / 0.695;
 	object-fit: cover;
 	border-radius: 20px;
 	transition: all 0.5s ease-in-out;
@@ -3230,12 +3228,7 @@ header.main-header .header-sticky.active {
 
 .page-header {
 	position: relative;
-	background: url("../images/page-header-bg.jpg") no-repeat;
-	background-position: center center;
-	background-size: cover;
-	padding: 205px 0 90px;
-	margin-top: -114px;
-	overflow: hidden;
+	padding: 250px 0 200px 0;
 }
 
 .page-header:before {
@@ -4114,11 +4107,73 @@ header.main-header .header-sticky.active {
 
 .post-image img {
 	width: 100%;
-	aspect-ratio: 1 / 0.5;
 	object-fit: cover;
 	border-radius: 20px;
 }
+.post-entry blockquote {
+	background: url(../images/icon-blockquote.svg), var(--primary-color);
+	background-repeat: no-repeat;
+	background-position: 30px 30px;
+	background-size: 45px;
+	border: 1px solid var(--divider-color);
+	border-radius: 18px;
+	padding: 30px 30px 30px 90px;
+	margin-bottom: 30px;
+}
+table {
+	width: 100%;
+	border-collapse: collapse;
+	background-color: #fff;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	margin: 30px 0;
+}
 
+th,
+td {
+	padding: 15px;
+	text-align: right;
+	border: 1px solid #ddd;
+}
+
+thead {
+	background-color: var(--accent-color);
+	color: white;
+}
+
+@media (max-width: 768px) {
+	table,
+	thead,
+	tbody,
+	th,
+	td,
+	tr {
+		display: block;
+	}
+
+	th {
+		position: sticky;
+		top: 0;
+		color: white;
+		z-index: 2;
+	}
+	thead {
+		display: none;
+	}
+	td {
+		text-align: right;
+		border: none;
+		border-bottom: 1px solid #ddd;
+		position: relative;
+		padding-right: 50%;
+	}
+
+	td::before {
+		content: attr(data-label);
+		position: absolute;
+		right: 15px;
+		font-weight: bold;
+	}
+}
 .post-content {
 	width: 100%;
 	max-width: 1100px;
@@ -4230,7 +4285,6 @@ header.main-header .header-sticky.active {
 }
 
 .post-entry blockquote {
-	background: url("../images/icon-blockquote.svg"), var(--primary-color);
 	background-repeat: no-repeat;
 	background-position: 30px 30px;
 	background-size: 45px;
@@ -5948,7 +6002,6 @@ header.main-header .header-sticky.active {
 	}
 
 	.page-header {
-		margin-top: -82px;
 		padding: 140px 0 60px;
 	}
 
@@ -7032,10 +7085,6 @@ header.main-header .header-sticky.active {
 		font-size: 16px;
 	}
 
-	.post-image img {
-		aspect-ratio: 1 / 0.7;
-	}
-
 	.post-entry blockquote {
 		background-position: 15px 15px;
 		padding: 60px 15px 15px 15px;
@@ -7296,6 +7345,9 @@ header.main-header .header-sticky.active {
 @media (max-width: 768px) {
 	.hc-about-top h4 {
 		font-size: 28px;
+	}
+	.post-entry h3 {
+		font-size: 22px;
 	}
 	.form input {
 		font-size: 10px;

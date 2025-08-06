@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap");
+
 body {
     font-family: "Tajawal", sans-serif;
 }
@@ -82,6 +83,22 @@ body {
     right: 50%;
     transform: translate(50%, -50%);
 }
+.breadcrumb-item + .breadcrumb-item {
+    padding-left: 0;
+    padding-right: var(--bs-breadcrumb-item-padding-x);
+}
+.breadcrumb-item + .breadcrumb-item::before {
+    float: right;
+    padding-right: 0;
+    padding-left: var(--bs-breadcrumb-item-padding-x);
+}
+.post-entry ul {
+    padding-right: 20px;
+    padding-left: 0;
+}
+.section-content-btn .section-btn {
+    text-align: right;
+}
 @media only screen and (max-width: 991px) {
     .hero-content-list ul li {
         padding-right: 25px;
@@ -120,5 +137,9 @@ body {
         border-right: 0;
         margin-right: 0;
         padding-right: 0;
+    }
+    .faq-accordion .accordion-header .accordion-button {
+        font-size: 16px;
+        text-align: right;
     }
 }
