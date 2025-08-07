@@ -11,6 +11,13 @@ body {
     left: initial;
     right: 0;
 }
+.main-menu .nav-menu-wrapper {
+    text-align: left;
+}
+th,
+td {
+    text-align: right;
+}
 .hero-content-list ul li {
     padding-right: 30px;
     padding-left: 0;
@@ -140,6 +147,9 @@ body {
     }
     .faq-accordion .accordion-header .accordion-button {
         font-size: 16px;
+        text-align: right;
+    }
+    td {
         text-align: right;
     }
 }
