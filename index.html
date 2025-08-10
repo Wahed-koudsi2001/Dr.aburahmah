@@ -623,7 +623,7 @@
                         <!-- Service Body Start -->
                         <div class="service-body">
                             <div class="icon-box">
-                                <img src="images/icon-service-1.svg" alt="">
+                                <img src="images/icons/تكميم المعدة.webp" alt="تكميم المعدة">
                             </div>
 
                             <!-- Service Content Start -->
@@ -661,7 +661,7 @@
                         <!-- Service Body Start -->
                         <div class="service-body">
                             <div class="icon-box">
-                                <img src="images/icon-service-1.svg" alt="">
+                                <img src="images/icons/تحويل مسار المعدة.webp" alt="تحويل مسار المعدة">
                             </div>
 
                             <!-- Service Content Start -->
@@ -697,7 +697,7 @@
                         <!-- Service Body Start -->
                         <div class="service-body">
                             <div class="icon-box">
-                                <img src="images/icon-service-1.svg" alt="">
+                                <img src="images/icons/ربط المعدة.webp" alt="ربط المعدة">
                             </div>
 
                             <!-- Service Content Start -->
@@ -732,7 +732,7 @@
                         <!-- Service Body Start -->
                         <div class="service-body">
                             <div class="icon-box">
-                                <img src="images/icon-service-1.svg" alt="">
+                                <img src="images/icons/بالون المعدة.webp" alt="بالون المعدة">
                             </div>
 
                             <!-- Service Content Start -->
@@ -767,7 +767,8 @@
                         <!-- Service Body Start -->
                         <div class="service-body">
                             <div class="icon-box">
-                                <img src="images/icon-service-1.svg" alt="">
+                                <img src="images/icons/تكميم مع تحويل المسار المصغر.webp"
+                                    alt="تكميم مع تحويل المسار المصغر">
                             </div>
 
                             <!-- Service Content Start -->
@@ -802,7 +803,7 @@
                         <!-- Service Body Start -->
                         <div class="service-body">
                             <div class="icon-box">
-                                <img src="images/icon-service-1.svg" alt="">
+                                <img src="images/icons/تجاوز الأمعاء.webp" alt="تجاوز الأمعاء">
                             </div>
 
                             <!-- Service Content Start -->
@@ -930,75 +931,46 @@
             <div class="hc-appointment-row">
                 <div class="hc-appointmnet-text">
                     <div class="hc-about-top">
-                        <span class="sub-title">مؤشر كتلة الجسم (BMI) | دليلك لفهم وزنك وصحتك بشكل أفضل</span>
-                        <h2 class="hc-about-head">اكتشف وضعك الصحي بسرعة باستخدام مؤشر كتلة الجسم BMI</h2>
-                        <p class="hc-paragraph">
-                            يتم حساب مؤشر كتلة الجسم باستخدام وزنك وطولك (وزنك مقسوماً على طولك مربعاً)، جنباً إلى جنب
-                            مع العديد من العوامل الأخرى،
-                            مثل ضغط الدم والكوليسترول ويمكن أن يساعد مؤشر كتلة الجسم في تقدير خطر الإصابة بنوبة قلبية أو
-                            سكتة دماغية.
-                        </p>
+                        <span class="sub-title" id="bmi-subtitle"></span>
+                        <h2 class="hc-about-head" id="bmi-heading"></h2>
+                        <p class="hc-paragraph" id="bmi-description"></p>
+
                         <form class="form" id="bmiForm">
-                            <input type="number" id="height" class="form-control" placeholder="اكتب طولك (سم)"
-                                required="">
-                            <input type="number" id="weight" class="form-control" placeholder="اكتب وزنك (كغ)"
-                                required="">
-                            <button type="submit" class="form-control">احسب</button>
+                            <input type="number" id="height" class="form-control" placeholder="" required>
+                            <input type="number" id="weight" class="form-control" placeholder="" required>
+                            <button type="submit" class="form-control" id="bmi-button"></button>
                         </form>
                     </div>
                 </div>
+
                 <div class="bmi-table">
                     <div class="bmi-head">
-                        <i class="fas fa-tachometer-alt"></i> أقسام مؤشرات الكتلة
+                        <i class="fas fa-tachometer-alt"></i> <span id="bmi-table-title"></span>
                     </div>
-                    <ul class="mk-list bmi-list">
-                        <li>أقل من 18.5</li>
-                        <li>وزن ناقص</li>
-                        <li>من 18.5 إلى 24.9</li>
-                        <li>وزن صحي</li>
-                        <li>من 25 إلى 29.9</li>
-                        <li>وزن زائد</li>
-                        <li>من 30 إلى 34.9</li>
-                        <li>سمنة من الدرجة الأولى
-                        </li>
-                        <li>من 35 إلى 39.9</li>
-                        <li>سمنة من الدرجة الثانية
-                        </li>
-                        <li>من 40 أو أكثر</li>
-                        <li>سمنة من درجة ثالثة
-                        </li>
-                    </ul>
-                    <p class="text-center">ملاحظة: الجدول الخاص بـ مؤشرات يبقى ثابتاً</p>
+                    <ul class="mk-list bmi-list" id="bmi-list"></ul>
+                    <p class="text-center" id="bmi-note"></p>
                 </div>
+
                 <div class="layout" style="display: none;">
                     <div class="result">
                         <i class="fa-solid fa-xmark"></i>
-                        <div class="result-text">
-                            النتيجة
-                        </div>
-                        <span class="status">
-
-                        </span>
+                        <div class="result-text"></div>
+                        <span class="status"></span>
                         <div class="calc_info_line">
                             <div class="calc_info_line_result_wrapper" style="left: 0;">
-                                <div class="calc_info_line_result">
-                                    أنت
-                                </div>
+                                <div class="calc_info_line_result" id="you-label"></div>
                             </div>
-                            <div class="calc_info_line_underweight calc">
-                                نقص في الوزن </div>
-                            <div class="calc_info_line_healthy calc">
-                                صحيح </div>
-                            <div class="calc_info_line_overweight calc">
-                                الوزن زائد </div>
-                            <div class="calc_info_line_obese calc">
-                                بدين </div>
+                            <div class="calc_info_line_underweight calc"></div>
+                            <div class="calc_info_line_healthy calc"></div>
+                            <div class="calc_info_line_overweight calc"></div>
+                            <div class="calc_info_line_obese calc"></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
     <!-- Our Counter Section End -->
 
     <!-- Our Testimonial Section Start -->
@@ -1558,77 +1530,6 @@
     <script src="js/wow.min.js"></script>
     <!-- Main Custom js file -->
     <script src="js/function.js"></script>
-    <script>
-        $(document).ready(function () {
-            // عند إرسال النموذج
-            $('#bmiForm').on('submit', function (e) {
-                e.preventDefault();
-
-                const heightInput = $('#height').val();
-                const weightInput = $('#weight').val();
-
-                if (!heightInput || !weightInput || heightInput <= 0 || weightInput <= 0) {
-                    alert("الرجاء إدخال قيم صحيحة للطول والوزن.");
-                    return;
-                }
-
-                const heightInMeters = heightInput / 100;
-                const bmi = (weightInput / (heightInMeters * heightInMeters)).toFixed(2);
-
-                let category = '';
-                let percentage = 0;
-
-                if (bmi < 18.5) {
-                    category = "وزن ناقص";
-                    percentage = (bmi / 18.5) * 16.666;
-                } else if (bmi < 25) {
-                    category = "وزن صحي";
-                    percentage = 16.666 + ((bmi - 18.5) / 6.4) * 16.666;
-                } else if (bmi < 30) {
-                    category = "وزن زائد";
-                    percentage = 33.333 + ((bmi - 25) / 5) * 16.666;
-                } else if (bmi < 35) {
-                    category = "سمنة من الدرجة الأولى";
-                    percentage = 50 + ((bmi - 30) / 5) * 16.666;
-                } else if (bmi < 40) {
-                    category = "سمنة من الدرجة الثانية";
-                    percentage = 66.666 + ((bmi - 35) / 5) * 16.666;
-                } else {
-                    category = "سمنة من درجة ثالثة";
-                    percentage = 83.333 + ((bmi - 40) / 10) * 16.666;
-                }
-
-                percentage = Math.min(Math.max(percentage, 0), 100);
-
-                // عرض النتيجة
-                $('.status').text(`مؤشر كتلة جسمك: ${bmi} - ${category}`);
-                $('.status').css('background-color',
-                    category === "وزن ناقص" ? 'lightblue' :
-                        category === "وزن صحي" ? 'lightgreen' :
-                            category === "وزن زائد" ? 'yellow' :
-                                category === "سمنة من الدرجة الأولى" ? 'orange' :
-                                    category === "سمنة من الدرجة الثانية" ? 'red' : 'darkred'
-                );
-
-                $('.layout').fadeIn();
-                $('.calc_info_line_result_wrapper').css('right', `${percentage}%`);
-            });
-
-            // إغلاق النافذة عند الضغط على X أو في أي مكان خارج النتيجة
-            $('.fa-xmark').on('click', resetLayout);
-            $(document).on('click', function (e) {
-                if ($('.layout').is(':visible') && !$('.result').is(e.target) && $('.result').has(e.target).length === 0) {
-                    resetLayout();
-                }
-            });
-
-            function resetLayout() {
-                $('.layout').fadeOut();
-                $('.calc_info_line_result_wrapper').css('right', '0');
-            }
-        });
-
-    </script>
 </body>
 
 </html>

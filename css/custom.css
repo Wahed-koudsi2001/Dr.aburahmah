@@ -822,7 +822,7 @@ header.main-header .header-sticky.active {
 	background-position: center center;
 	background-size: cover;
 	margin-top: -115px;
-	padding: 200px 0 80px;
+	padding: 270px 0 80px;
 	overflow: hidden;
 }
 
@@ -1588,7 +1588,7 @@ header.main-header .header-sticky.active {
 
 .service-body .icon-box img {
 	width: 100%;
-	max-width: 50px;
+	max-width: 100px;
 	transition: all 0.4s ease-in-out;
 }
 
@@ -6674,7 +6674,7 @@ thead {
 	}
 
 	.service-body .icon-box img {
-		max-width: 40px;
+		max-width: 50px;
 	}
 
 	.service-content-info h3 {

@@ -370,3 +370,173 @@
 	/* Service Item List End */
 
 })(jQuery);
+
+$(document).ready(function () {
+	const translations = {
+		en: {
+			subtitle: "Body Mass Index (BMI) | Your Guide to Better Understanding Your Weight and Health",
+			heading: "Quickly Assess Your Health Status Using Body Mass Index BMI",
+			description: "BMI is calculated using your weight and height (weight divided by height squared). Along with other factors such as blood pressure and cholesterol, BMI can help estimate the risk of heart disease or stroke.",
+			heightPlaceholder: "Enter your height (cm)",
+			weightPlaceholder: "Enter your weight (kg)",
+			button: "Calculate",
+			tableTitle: "BMI Categories",
+			tableList: [
+				"Less than 18.5", "Underweight",
+				"18.5 to 24.9", "Healthy weight",
+				"25 to 29.9", "Overweight",
+				"30 to 34.9", "Class I Obesity",
+				"35 to 39.9", "Class II Obesity",
+				"40 or more", "Class III Obesity"
+			],
+			note: "Note: The BMI table remains unchanged.",
+			resultTitle: "Result",
+			underweight: "Underweight",
+			healthy: "Healthy",
+			overweight: "Overweight",
+			obese: "Obese",
+			youLabel: "You",
+			yourBmi: "Your BMI:",
+			categories: {
+				underweight: "Underweight",
+				healthy: "Healthy Weight",
+				overweight: "Overweight",
+				obese1: "Class I Obesity",
+				obese2: "Class II Obesity",
+				obese3: "Class III Obesity"
+			},
+			alert: "Please enter valid values for height and weight."
+		},
+		ar: {
+			subtitle: "مؤشر كتلة الجسم (BMI) | دليلك لفهم وزنك وصحتك بشكل أفضل",
+			heading: "اكتشف وضعك الصحي بسرعة باستخدام مؤشر كتلة الجسم BMI",
+			description: "يتم حساب مؤشر كتلة الجسم باستخدام وزنك وطولك (وزنك مقسوماً على طولك مربعاً)، جنباً إلى جنب مع العديد من العوامل الأخرى مثل ضغط الدم والكوليسترول، ويمكن أن يساعد مؤشر كتلة الجسم في تقدير خطر الإصابة بنوبة قلبية أو سكتة دماغية.",
+			heightPlaceholder: "اكتب طولك (سم)",
+			weightPlaceholder: "اكتب وزنك (كغ)",
+			button: "احسب",
+			tableTitle: "أقسام مؤشرات الكتلة",
+			tableList: [
+				"أقل من 18.5", "وزن ناقص",
+				"من 18.5 إلى 24.9", "وزن صحي",
+				"من 25 إلى 29.9", "وزن زائد",
+				"من 30 إلى 34.9", "سمنة من الدرجة الأولى",
+				"من 35 إلى 39.9", "سمنة من الدرجة الثانية",
+				"من 40 أو أكثر", "سمنة من درجة ثالثة"
+			],
+			note: "ملاحظة: الجدول الخاص بـ مؤشرات يبقى ثابتاً",
+			resultTitle: "النتيجة",
+			underweight: "نقص الوزن",
+			healthy: "صحيح",
+			overweight: "وزن زائد",
+			obese: "سمنة",
+			youLabel: "أنت",
+			yourBmi: "مؤشر كتلة جسمك:",
+			categories: {
+				underweight: "وزن ناقص",
+				healthy: "وزن صحي",
+				overweight: "وزن زائد",
+				obese1: "سمنة من الدرجة الأولى",
+				obese2: "سمنة من الدرجة الثانية",
+				obese3: "سمنة من درجة ثالثة"
+			},
+			alert: "الرجاء إدخال قيم صحيحة للطول والوزن."
+		}
+	};
+
+	function getCurrentLang() {
+		return document.documentElement.lang || 'en';
+	}
+
+	function updateTranslations() {
+		const lang = getCurrentLang();
+		const t = translations[lang];
+
+		$('#bmi-subtitle').text(t.subtitle);
+		$('#bmi-heading').text(t.heading);
+		$('#bmi-description').text(t.description);
+		$('#height').attr('placeholder', t.heightPlaceholder);
+		$('#weight').attr('placeholder', t.weightPlaceholder);
+		$('#bmi-button').text(t.button);
+		$('#bmi-table-title').text(t.tableTitle);
+		$('#bmi-note').text(t.note);
+		$('.result-text').text(t.resultTitle);
+		$('.calc_info_line_underweight').text(t.underweight);
+		$('.calc_info_line_healthy').text(t.healthy);
+		$('.calc_info_line_overweight').text(t.overweight);
+		$('.calc_info_line_obese').text(t.obese);
+		$('#you-label').text(t.youLabel);
+
+		let listHtml = '';
+		for (let i = 0; i < t.tableList.length; i += 2) {
+			listHtml += `<li>${t.tableList[i]}</li><li>${t.tableList[i + 1]}</li>`;
+		}
+		$('#bmi-list').html(listHtml);
+	}
+
+	updateTranslations();
+
+	$('#bmiForm').on('submit', function (e) {
+		e.preventDefault();
+		const lang = getCurrentLang();
+		const t = translations[lang];
+		const heightInput = $('#height').val();
+		const weightInput = $('#weight').val();
+
+		if (!heightInput || !weightInput || heightInput <= 0 || weightInput <= 0) {
+			alert(t.alert);
+			return;
+		}
+
+		const heightInMeters = heightInput / 100;
+		const bmi = (weightInput / (heightInMeters ** 2)).toFixed(2);
+
+		let categoryKey = '';
+		let percentage = 0;
+
+		if (bmi < 18.5) {
+			categoryKey = 'underweight';
+			percentage = (bmi / 18.5) * 16.666;
+		} else if (bmi < 25) {
+			categoryKey = 'healthy';
+			percentage = 16.666 + ((bmi - 18.5) / 6.4) * 16.666;
+		} else if (bmi < 30) {
+			categoryKey = 'overweight';
+			percentage = 33.333 + ((bmi - 25) / 5) * 16.666;
+		} else if (bmi < 35) {
+			categoryKey = 'obese1';
+			percentage = 50 + ((bmi - 30) / 5) * 16.666;
+		} else if (bmi < 40) {
+			categoryKey = 'obese2';
+			percentage = 66.666 + ((bmi - 35) / 5) * 16.666;
+		} else {
+			categoryKey = 'obese3';
+			percentage = 83.333 + ((bmi - 40) / 10) * 16.666;
+		}
+
+		percentage = Math.min(Math.max(percentage, 0), 100);
+		const category = t.categories[categoryKey];
+
+		$('.status').text(`${t.yourBmi} ${bmi} - ${category}`);
+		$('.status').css('background-color',
+			categoryKey === 'underweight' ? 'lightblue' :
+				categoryKey === 'healthy' ? 'lightgreen' :
+					categoryKey === 'overweight' ? 'yellow' :
+						categoryKey === 'obese1' ? 'orange' :
+							categoryKey === 'obese2' ? 'red' : 'darkred');
+
+		$('.layout').fadeIn();
+		$('.calc_info_line_result_wrapper').css('right', `${percentage}%`);
+	});
+
+	$('.fa-xmark').on('click', resetLayout);
+	$(document).on('click', function (e) {
+		if ($('.layout').is(':visible') && !$('.result').is(e.target) && $('.result').has(e.target).length === 0) {
+			resetLayout();
+		}
+	});
+
+	function resetLayout() {
+		$('.layout').fadeOut();
+		$('.calc_info_line_result_wrapper').css('right', '0');
+	}
+});
