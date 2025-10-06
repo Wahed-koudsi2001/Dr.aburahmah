@@ -1592,16 +1592,6 @@ header.main-header .header-sticky.active {
 	transition: all 0.4s ease-in-out;
 }
 
-.service-item.active .service-body .icon-box img,
-.service-item:hover .service-body .icon-box img {
-	filter: brightness(0) invert(1);
-}
-
-.service-content {
-	transform: translateY(55px);
-	transition: all 0.4s ease-in-out;
-}
-
 .service-item.active .service-content,
 .service-item:hover .service-content {
 	transform: translateY(0px);
@@ -5189,7 +5179,6 @@ thead {
 
 .video-gallery-image img {
 	width: 100%;
-	aspect-ratio: 1 / 0.83;
 	object-fit: cover;
 	border-radius: 20px;
 }
