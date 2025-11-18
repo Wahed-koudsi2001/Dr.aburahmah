@@ -4115,6 +4115,7 @@ header.main-header .header-sticky.active {
 	padding: 30px 30px 30px 90px;
 	margin-bottom: 30px;
 }
+
 table {
 	width: 100%;
 	border-collapse: collapse;
@@ -4136,39 +4137,45 @@ thead {
 }
 
 @media (max-width: 768px) {
-	table,
-	thead,
-	tbody,
-	th,
-	td,
-	tr {
-		display: block;
-	}
 
-	th {
-		position: sticky;
-		top: 0;
-		color: white;
-		z-index: 2;
-	}
-	thead {
-		display: none;
-	}
-	td {
-		text-align: left;
-		border: none;
-		border-bottom: 1px solid #ddd;
-		position: relative;
-		padding-right: 50%;
-	}
+    table {
+        border: none;
+        box-shadow: none;
+    }
 
-	td::before {
-		content: attr(data-label);
-		position: absolute;
-		right: 15px;
-		font-weight: bold;
-	}
+    table thead {
+        display: none;
+    }
+
+    table tr {
+        display: block;
+        background: #fff;
+        margin-bottom: 15px;
+        border-radius: 10px;
+        padding: 15px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        border: 1px solid #eee;
+    }
+
+    table td {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0;
+        border: none;
+        border-bottom: 1px solid #f1f1f1;
+    }
+
+    table td:last-child {
+        border-bottom: none;
+    }
+
+    table td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: #333;
+    }
 }
+
 .post-content {
 	width: 100%;
 	max-width: 1100px;
